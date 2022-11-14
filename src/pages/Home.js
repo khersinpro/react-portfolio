@@ -10,8 +10,9 @@ import twitter from '../assets/projects/react-twitter.png'
 import groupomania from '../assets/projects/react-groupo.png'
 
 const Home = () => {
-    const [loaded, setLoaded] = useState(false);
     gsap.registerPlugin(ScrollTrigger);
+    const [loaded, setLoaded] = useState(false);
+    const isPair = (num) => num % 2 === 0;
 
     const typeConfiguration = <Typewriter
         onInit={(typewriter) => {
@@ -33,6 +34,7 @@ const Home = () => {
             .start()
         }}
     /> ;
+
     const desktopHomeAnim = (elem, elem1, elem2, x) => {
         gsap.timeline({
             scrollTrigger: {
@@ -54,12 +56,8 @@ const Home = () => {
         )
     }
 
-        
-    const isPair = (num) => num % 2 === 0;
-
     useEffect(() => {
         setLoaded(true);
-        
             for( let i = 1; i < 4; i++ ) {
                 const elem = document.getElementById(`project${i}`);
                 const elemBtn = elem.querySelectorAll('.button');
@@ -202,7 +200,6 @@ const Home = () => {
                         <div className='projects--nextButton'>
                             <Link to='/react-portfolio/projects' className='button dark'>Plus de projets</Link>
                         </div>
-
                     </div>
                 </section>
             </main>

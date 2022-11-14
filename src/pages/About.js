@@ -51,8 +51,8 @@ const About = () => {
 
     useEffect(() => {
         highlight();
-        
         aboutAnimation('.about')
+
         // skill bar animation scrollTrigger
         ScrollTrigger.create({
             trigger: "#launch",
