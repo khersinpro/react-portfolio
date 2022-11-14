@@ -36,6 +36,7 @@ const Projects = () => {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         highlight();
         for(let i =  1; i <= 6; i++) {
             const elem = document.getElementById(`project${i}`);

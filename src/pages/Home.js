@@ -57,6 +57,7 @@ const Home = () => {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         setLoaded(true);
             for( let i = 1; i < 4; i++ ) {
                 const elem = document.getElementById(`project${i}`);
