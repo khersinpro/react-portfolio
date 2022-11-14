@@ -1,0 +1,11 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+@import './utils/mixins';
+@import './utils/variables';
+@import './utils/reusable';
+@import './base/base';
+@import './layout/navbar';
+@import './layout/footer';
+@import './pages/about';
+@import './pages/home';
+@import './pages/contact';

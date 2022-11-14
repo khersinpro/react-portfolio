@@ -1,0 +1,149 @@
+// NAVBAR + BURGER MENU + BURGER ANIMATION
+.navbar {
+    position: fixed;
+    z-index: 3;
+    padding: 10px 20px;
+    width: 100%;
+    background: #fff;
+    @include flex-between;
+    &.scrolled {
+        box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+        transition: 0.5s linear;
+    }
+    &--logo {
+        font-size: 35px;
+        color: #000;
+        font-weight: 700;
+    }
+    &--toggle {
+        position: relative;
+        z-index: 3;
+        width: 50px;
+        height: 35px;
+        cursor: pointer;
+        z-index: 5;
+        &__icon {
+            position: absolute;
+            top: 18px;
+            left: 5px;
+        }
+        //  Création du burger menu
+        .line, .line::after, .line::before {
+            height: 3px;
+            width: 26px;
+            background: #000;
+            position: absolute;
+            border-radius: 4px;
+        }
+        .line{
+            transition-timing-function: cubic-bezier(.75, .055, .675, .19);
+            transition-duration: .22s;
+        }
+        .line::after, .line::before {
+            content: "";
+            display: block;
+        }
+        .line::before {
+            top: -8px;
+            transition: top .1s ease-in .25s, opacity .1s ease-in;
+        }
+        .line::after {
+            bottom: -8px;
+            transition: bottom .1s ease-in .25s, opacity .1s ease-in;
+        }
+        // animation when menu is open
+        &.open .line {
+            transition-delay: .12s;
+            transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+            transform: rotate(225deg);
+        }
+        &.open .line::after {
+            bottom: 0;
+            transition: bottom .1s ease-out, transform .22s cubic-bezier(.215, .61, .355, 1) .12s;
+            transform: rotate(-90deg);
+        }
+        &.open .line::before {
+            top: 0;
+            transition: top .1s ease-out, opacity .1s ease-out .12s;
+            opacity: 0;
+        }
+        &.open .line::after, &.open .line::before, &.open .line {
+            background-color: white;
+        }        
+    }
+}
+// Full screen navigation
+.navBox {
+    visibility: hidden;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    transition: all .2s linear;
+    opacity: 0;
+    @include flex-center;
+    &--navigation {
+        @include flex-center;
+        flex-direction: column;
+        &__link {
+            position: relative;
+            opacity: 0;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5 );
+            text-transform: uppercase;
+            font-size: 45px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            &::before {
+                content: attr(data-text);
+                position: absolute;
+                width: 0%;
+                color: $hover-menu;
+                -webkit-text-stroke: 2px $hover-menu;
+                overflow: hidden;
+                transition: 0.5s linear;
+            }
+            &:hover::before {
+                width: 100%;
+                border-right: 3px solid $hover-menu;
+            }
+            @media (max-width: 480px) {
+                font-size: 38px;
+                letter-spacing: 2px;
+            }
+            @media (max-width: 380px) {
+                font-size: 34px;
+            }
+        }
+    }
+    &.open {
+        visibility: visible;
+        opacity: 1;
+        transition: all .2s linear;
+    }
+    &.open a{
+        animation: fadeInUp .35s ease forwards; 
+        animation-delay: .1s;
+    }
+    @for $i from 1 through 4 {
+        &.open a:nth-child(#{$i}) {
+            animation-delay: $i * 0.10s;
+        }
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(150%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,143 @@
+.mainTitle{
+    padding: 180px 0 100px;
+    border-bottom: 1px solid #eee;
+    @include flex-center;
+    @media (max-width: 500px) {
+        padding: 130px 0 70px;
+    }
+    &--container {
+        width: 1100px;
+        @media (max-width: 1200px) {
+            width: 600px;
+        }
+        @media (max-width: 700px) {
+            width: 100%;
+        }
+        &__animation {
+            position: relative;
+            display: inline-block;
+            @media (max-width: 700px) {
+                margin-left: 25px;
+            }
+            @media (max-width: 500px) {
+                margin-left: 15px;
+            }
+            .animation-highlight {
+                height: 100%;
+                position: absolute;
+                z-index: 0;
+                background-color: #12CBC4;
+                width: 100%;
+            }
+            .title {
+                font-size: 50px;
+                color: #333;
+                display: block;
+                float: left;
+                padding: 10px;
+                position: relative;
+                z-index: 2;
+                @media (max-width: 500px) {
+                    font-size: 35px;
+                }
+            }
+        }
+    }
+}
+
+.about-section{
+    width: 100%;
+    padding: 100px 0;
+    background: #fbfbfb;
+    .about {
+        width: 1100px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding-left: 10px;
+        @media (max-width: 1200px) {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        &--imgContainer {
+            height: auto;
+            width: 400px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            img{
+                height: 641px;
+                @media (max-width: 1200px) {
+                    height: auto;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            @media (max-width: 1200px) {
+                width: 600px;
+                height: 700px;
+                display: none;
+            }
+        }
+        &--presentation {
+            width: 600px;
+            color: #333;
+            @media (max-width: 700px) {
+                width: 100%;
+                padding: 0 25px;
+            }
+            @media (max-width: 500px) {
+                padding: 0 15px;
+            }
+            h2 {
+                font-size: 30px;
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+            &__text {
+                margin: 20px 0;
+                color: #000;
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 22px;
+                @media (max-width: 1200px) {
+                    margin: 30px 0;
+                }
+            }
+            &__skill {
+                margin-top: 15px;
+                width: 100%;
+                @media (max-width: 1200px) {
+                    margin-top: 25px;
+                }
+                .skill-description {
+                    @include flex-between;
+                    font-weight: 600;
+                    color: #333;
+                    .skill-name {
+                        font-size: 14px;
+                        letter-spacing: 1px;
+                        font-weight: 700;
+                    }
+                }
+                .skillBar-container {
+                    padding: 10px 0;
+
+                    .skillBar-empty {
+                        height: 5px;
+                        width: 100%;
+                        background: #c7ecee;
+                        .skillBar--full {
+                            display: block;
+                            float: left;
+                            height: 100%;
+                            background: #9980FA;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,295 @@
+// ************************************ //
+// Presentation container with title + animate text
+// ************************************ //
+
+.presentation {
+    padding: 64.2px 0 100px;
+    background-color: #fff;
+    @include flex-center;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    &--container {
+        padding: 130px 0px 60px;
+        width: 1200px;
+        @media (max-width: 1250px) {
+            width: 100%;
+            padding-left: 50px;
+        }
+        @media (max-width: 700px) {
+            padding-left: 30px;
+        }
+        @media (max-width: 370px) {
+            padding: 70px 15px 60px;
+        }
+        //* Title (h1) for HomePage
+        &__title {
+            font-size: 50px;
+            color: #333;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            br {
+                display: none;
+            }
+            @media (max-width: 1250px) {
+                font-size: 40px;
+            }
+            @media (max-width: 660px) {
+                line-height: 55px;
+                br {
+                    display: block;
+                }
+            }
+            @media (max-width: 455px) {
+                br {
+                    display: none;
+                }
+            }
+            @media (max-width: 370px) {
+                font-size: 35px;
+            }
+        }
+        //* Text display with typewritter
+        &__typeText {
+            font-size: 45px;
+            color: #333;
+            @media (max-width: 1250px) {
+                font-size: 35px;
+            }
+            @media (max-width: 455px) {
+                font-size: 30px;
+            }
+            @media (max-width: 370px) {
+                font-size: 27px;
+            }
+        }
+    }
+}
+// hightlight logic for h1 with keyframe
+.highlight {
+    position: relative;
+    z-index: 2;
+    padding: 3px 3px;
+}
+.highlight::before{
+    width: 0%;
+    content: "";
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: -3px;
+    height: 100%;
+    padding: 3px 6px;
+    overflow: hidden;
+    background-color: #0be881;
+}
+.loaded.highlight::before {
+    z-index: -1;
+    animation: hightlightWidth .25s linear forwards;
+}
+// Highlight keyframe for title
+@keyframes hightlightWidth {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+// ************************************ //
+// Home Project Container
+// ************************************ //
+
+.projects {
+    background: #fbfbfb;
+    @include flex-center;
+    flex-direction: column;
+    padding-bottom: 60px;
+    //* Title for project section
+    &--title {
+        margin: 70px 0 40px;
+        width: 1200px;
+        @media (max-width: 1250px) {
+            width: 100%;
+            text-align: center;
+        }
+        @media (max-width: 450px) {
+            margin: 40px 0;
+        }
+        h2{
+            font-size: 35px;
+            font-weight: 700;
+            .highlight-projects {
+                position: relative;
+                padding: 3px 3px;
+                z-index: 1;
+            }
+            .highlight-projects::before{
+                width: 100%;
+                content: "";
+                position: absolute;
+                z-index: -1;
+                bottom: 0;
+                left: -3px;
+                height: 100%;
+                padding: 3px 6px;
+                overflow: hidden;
+                transform: rotate(-2deg) ;
+                background-color: #18dcff;
+            }
+            @media (max-width: 450px) {
+                font-size: 30px;
+            }
+        }
+    }
+    //* Button to all projects page
+    &--nextButton {
+        width: 100%;
+        text-align: center;
+        margin-top: 140px;
+        @media (max-width: 450px) {
+            margin-top: 60px;
+        }
+    }
+}
+
+// ************************************ //
+// Display project logic for all pages
+// ************************************ //
+
+.projects--container {
+    width: 1200px;
+    @media (max-width: 1250px) {
+        width: 100%;
+        @include flex-center;
+        flex-direction: column;
+    }
+    &__box.reverse {
+        flex-direction: row-reverse;
+        @media (max-width: 1250px) {
+            flex-direction: column;
+        }
+    }
+    // Project box with image and description
+    &__box{   
+        width: 100%;
+        display: flex;
+        margin-bottom: 70px;
+        @media (max-width: 1250px) {
+            align-items: center;
+            flex-direction: column;
+        }
+        // Project image box style
+        .imageBox {
+            overflow: hidden;
+            border-radius: 3px;
+            width: calc( 50% - 7.5px);
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            @media (max-width: 1250px) {
+                width: 592px;
+            }
+            @media (max-width: 640px) {
+                width: 97%;
+            }
+            &--header {
+                width: 100%;
+                height: 30px;
+                padding: 0 20px;
+                background: #CAD3C8;
+                display: flex;
+                align-items: center;
+                &__ellipsis {
+                    height: 8px;
+                    width: 8px;
+                    border-radius: 50%;
+                    margin-right: 8px;
+                }
+                .color1 {
+                    background: #7f8fa6;
+                }
+                .color2 {
+                    background: #718093;
+                }
+                .color3 {
+                    background: #487eb0;
+                }
+            }
+            &--container {
+                width: 100%;
+                height: 296px;
+                overflow: hidden;  
+                @media (max-width: 640px) {
+                    height: 100%;
+                    display: flex;
+                }
+                img {
+                    width: 100%;
+                }
+            }
+        }   
+        // Project description box 
+        .description {
+            width: calc( 50% - 7.5px);
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            color: #333;
+            @media (max-width: 1250px) {
+                width: 592px;
+                margin-top: 25px;
+                padding-left: 10px;
+            }
+            @media (max-width: 640px) {
+                width: 97%;
+            }
+            h3 {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+            &--techno {
+                margin-top: 20px;
+                &__title {
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-bottom: 10px;
+                }
+                &__list {
+                    list-style: none;
+                    display: flex;
+                    flex-wrap: wrap;
+                    grid-row-gap: 10px ;
+                    margin: 20px 0 10px;
+                    li {
+                        background: #000;
+                        border-radius: 3px;
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: white;
+                        padding: 6px 6px;
+                        margin-right: 8px;
+                        // transform-origin: bottom left; 
+                    }
+                    .list-color1{
+                        background: #00CF80;
+                    }
+                    .list-color2{
+                        background: #FF20C1;
+                    }
+                    .list-color3{
+                        background: #f36;
+                    }
+                    .list-color4{
+                        background: #ffa107;
+                    }
+                }
+            }
+            &--resume {
+                font-size: 17px;
+                font-weight: 500;
+                padding-right: 10px;
+                margin: 10px 0;
+            }
+        }
+    }
+}

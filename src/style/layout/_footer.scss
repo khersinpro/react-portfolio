@@ -1,0 +1,29 @@
+footer{
+    padding: 45px 30px;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: row-reverse;
+    .socialNav{
+        @include flex-center;
+        &--box {
+            list-style: none;
+            margin-left: 10px;
+            a {
+                border: 1px solid #333;
+                border-radius: 3px;
+                padding: 5px 6px;
+                i {
+                    font-size: 16px;
+                    color: #333;
+                }
+                transition: .22s;
+            }
+            a:hover {
+                background: #ecf0f1;
+            }
+        }
+    }
+}
+// #0be881
