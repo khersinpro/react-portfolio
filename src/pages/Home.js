@@ -200,7 +200,7 @@ const Home = () => {
                         </div>
                     </div>
                         <div className='projects--nextButton'>
-                            <Link to='/projects' className='button dark'>Plus de projets</Link>
+                            <Link to='/react-portfolio/projects' className='button dark'>Plus de projets</Link>
                         </div>
 
                     </div>
