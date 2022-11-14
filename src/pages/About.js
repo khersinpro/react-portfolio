@@ -57,8 +57,7 @@ const About = () => {
         ScrollTrigger.create({
             trigger: "#launch",
             start: 'top bottom',
-            onEnter: (self) => progressBar(self),
-            markers: true
+            onEnter: (self) => progressBar(self)
         })
     }, [])
     
