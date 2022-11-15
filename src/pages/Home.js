@@ -39,7 +39,7 @@ const Home = () => {
         gsap.timeline({
             scrollTrigger: {
             trigger: elem,
-            start: "80px bottom"
+            start: "50px bottom"
             }
         })
         .fromTo(elem,  
@@ -48,7 +48,7 @@ const Home = () => {
         )
         .fromTo(elem1,
             { opacity: 0 },
-            { opacity: 1, stagger: 0.20 , duration: 0.4 }
+            { opacity: 1, stagger: 0.20 , duration: 0.4 }, "-=0.2"
         )
         .fromTo(elem2,  
             { opacity: 0},
