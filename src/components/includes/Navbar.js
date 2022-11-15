@@ -23,10 +23,10 @@ return (
         </div>
         <div className={`navBox ${toggle ? '' : 'open'}`}>
             <nav className='navBox--navigation'>
-                <Link to='/react-portfolio/' className='navBox--navigation__link' data-text='&nbsp;Accueil&nbsp;'>&nbsp;Accueil&nbsp;</Link>
-                <Link to='/react-portfolio/about' className='navBox--navigation__link' data-text='&nbsp;Présentation&nbsp;'>&nbsp;Présentation&nbsp;</Link>
-                <Link to='/react-portfolio/projects' className='navBox--navigation__link' data-text='&nbsp;Projets&nbsp;'>&nbsp;Projets&nbsp;</Link>
-                <Link to='/react-portfolio/contact' className='navBox--navigation__link' data-text='&nbsp;Contact&nbsp;'>&nbsp;Contact&nbsp;</Link>
+                <Link onClick={() => setToggle(true)} to='/react-portfolio/' className='navBox--navigation__link' data-text='&nbsp;Accueil&nbsp;'>&nbsp;Accueil&nbsp;</Link>
+                <Link onClick={() => setToggle(true)} to='/react-portfolio/about' className='navBox--navigation__link' data-text='&nbsp;Présentation&nbsp;'>&nbsp;Présentation&nbsp;</Link>
+                <Link onClick={() => setToggle(true)} to='/react-portfolio/projects' className='navBox--navigation__link' data-text='&nbsp;Projets&nbsp;'>&nbsp;Projets&nbsp;</Link>
+                <Link onClick={() => setToggle(true)} to='/react-portfolio/contact' className='navBox--navigation__link' data-text='&nbsp;Contact&nbsp;'>&nbsp;Contact&nbsp;</Link>
             </nav>
         </div>
     </header>
