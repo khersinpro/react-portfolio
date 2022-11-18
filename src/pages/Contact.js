@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { gsap } from "gsap";
-import Footer from '../components/includes/Footer';
-import Navbar from '../components/includes/Navbar';
+import { gsap } from "gsap
 
 const Contact = () => {
     const [name, setName] = useState("");
@@ -56,52 +54,48 @@ const Contact = () => {
     }, [])
     
     return (
-        <>
-            < Navbar />
-            <main>
+        <main>
             <section className='mainTitle'>
-                    <div className='mainTitle--container' >
-                        <div className='mainTitle--container__animation'>
-                            <h1 className='title'>Contact</h1>
-                            <div className='animation-highlight'></div>
+                <div className='mainTitle--container' >
+                    <div className='mainTitle--container__animation'>
+                        <h1 className='title'>Contact</h1>
+                        <div className='animation-highlight'></div>
+                    </div>
+                </div>
+            </section>
+            <section className='contact-section'>
+                <div className='contact'>
+                    <div className='contact--links' >
+                        <h2>Entrons en contact</h2>
+                        <div className='contact--links__box'>
+                            <a href='mailto:khersinpro@gmail.com'>
+                                <i className="fa-regular fa-envelope"></i>
+                                <span>Contact par email</span>
+                            </a>
+                        </div>
+                        <div className='contact--links__box'>
+                            <a href='https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile' target='blank'>
+                                <i className="fa-brands fa-linkedin-in"></i>
+                                <span>Contact par Linkedin</span>
+                            </a>
                         </div>
                     </div>
-                </section>
-                <section className='contact-section'>
-                    <div className='contact'>
-                        <div className='contact--links' >
-                            <h2>Entrons en contact</h2>
-                            <div className='contact--links__box'>
-                                <a href='mailto:khersinpro@gmail.com'>
-                                    <i className="fa-regular fa-envelope"></i>
-                                    <span>Contact par email</span>
-                                </a>
+                    <div  className='contact--form'>
+                        <form onSubmit={submitForm}>
+                            <div className='names-box'>
+                                <input onChange={e => setName(e.target.value)} value={name} className='input-text' type="text" placeholder='Prénom' name="surname" />
+                                <input onChange={e => setFirstname(e.target.value)} value={firstname} className='input-text' type="text" placeholder='Nom'  name="firstname" />
                             </div>
-                            <div className='contact--links__box'>
-                                <a href='https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile' target='blank'>
-                                    <i className="fa-brands fa-linkedin-in"></i>
-                                    <span>Contact par Linkedin</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div  className='contact--form'>
-                            <form onSubmit={submitForm}>
-                                <div className='names-box'>
-                                    <input onChange={e => setName(e.target.value)} value={name} className='input-text' type="text" placeholder='Prénom' name="surname" />
-                                    <input onChange={e => setFirstname(e.target.value)} value={firstname} className='input-text' type="text" placeholder='Nom'  name="firstname" />
-                                </div>
-                                <input onChange={e => setEmail(e.target.value)} value={email} className='input-text input-email' type="email" placeholder='Email' name="email" />
-                                <textarea onChange={e => setMessage(e.target.value)} value={message} placeholder='Message' name="message" />
-                                <input className='input-text input-sub' type='submit' value="Envoyer" />
-                                {formError && <p className='error-message'>{formError}</p>}
-                                {formSubmited && <p className='success-message'>{formSubmited}</p>}
-                            </form>
-                        </div>
+                            <input onChange={e => setEmail(e.target.value)} value={email} className='input-text input-email' type="email" placeholder='Email' name="email" />
+                            <textarea onChange={e => setMessage(e.target.value)} value={message} placeholder='Message' name="message" />
+                            <input className='input-text input-sub' type='submit' value="Envoyer" />
+                            {formError && <p className='error-message'>{formError}</p>}
+                            {formSubmited && <p className='success-message'>{formSubmited}</p>}
+                        </form>
                     </div>
-                </section>
-            </main>
-            < Footer />
-        </>
+                </div>
+            </section>
+        </main>
     )
 }
 

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Navbar from '../components/includes/Navbar';
-import Footer from '../components/includes/Footer';
 import { projectsData } from '../assets/data/data'
 import ProjectSchema from '../components/project/ProjectSchema';
 import Typewriter from 'typewriter-effect';
@@ -70,39 +68,34 @@ const Home = () => {
     }, [])
 
     return (
-        <>
-            < Navbar />
-            <main>
-                <section className='presentation'>
-                    <div className='presentation--container'>
-                        <h1 className='presentation--container__title'>Bienvenue sur mon <br/> <span className={`highlight ${loaded ? "loaded" : ""}`}>portfolio</span></h1>
-                        <div className='presentation--container__typeText'>{typeConfiguration}</div>
+        <main>
+            <section className='presentation'>
+                <div className='presentation--container'>
+                    <h1 className='presentation--container__title'>Bienvenue sur mon <br/> <span className={`highlight ${loaded ? "loaded" : ""}`}>portfolio</span></h1>
+                    <div className='presentation--container__typeText'>{typeConfiguration}</div>
+                </div>
+            </section>
+            <section className='projects'>
+                <div className='projects--title'>
+                    <h2>
+                        <span className={`highlight-projects ${loaded ? "loaded" : ""}`}>
+                            Mes projets
+                        </span>
+                    </h2>
+                </div>
+                <div className='projects--container'>
+                    <div className='full-separator'></div>
+                    {
+                        projectsData.slice(0, 3).map((project, index) => (
+                            < ProjectSchema project={ project } index={ index } key={ index } length={ 3 } />
+                        ))
+                    }
+                    <div className='projects--nextButton'>
+                        <Link to='/react-portfolio/projects' className='button dark'>Plus de projets</Link>
                     </div>
-                </section>
-                <section className='projects'>
-                    <div className='projects--title'>
-                        <h2>
-                            <span className={`highlight-projects ${loaded ? "loaded" : ""}`}>
-                                Mes projets
-                            </span>
-                        </h2>
-                    </div>
-                    <div className='projects--container'>
-                        <div className='full-separator'></div>
-                        {
-                            projectsData.slice(0, 3).map((project, index) => (
-                                < ProjectSchema project={ project } index={ index } key={ index } length={ 3 } />
-                            ))
-                        }
-                        <div className='projects--nextButton'>
-                            <Link to='/react-portfolio/projects' className='button dark'>Plus de projets</Link>
-                        </div>
-
-                    </div>
-                </section>
-            </main>
-            <Footer />
-        </>
+                </div>
+            </section>
+        </main>
     )
 }
 

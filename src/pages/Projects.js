@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Footer from '../components/includes/Footer';
-import Navbar from '../components/includes/Navbar';
 import ProjectSchema from '../components/project/ProjectSchema';
 import { projectsData } from '../assets/data/data'
 
@@ -45,8 +43,6 @@ const Projects = () => {
     }, [])
     
     return (
-    <>
-        < Navbar />
         <main>
             <section className='mainTitle'>
                     <div className='mainTitle--container' >
@@ -67,8 +63,6 @@ const Projects = () => {
                 </div>
             </section>
         </main>
-        < Footer />
-    </>
     )
 }
 
