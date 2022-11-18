@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { gsap } from "gsap
+import { gsap } from "gsap";
 
 const Contact = () => {
     const [name, setName] = useState("");
